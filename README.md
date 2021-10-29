@@ -75,7 +75,50 @@ Building .terraspace-cache/us-west-2/dev/stacks/fs
 Built in .terraspace-cache/us-west-2/dev/stacks/fs
 Current directory: .terraspace-cache/us-west-2/dev/stacks/fs
 => terraform init -get -input=false >> /tmp/terraspace/log/init/fs.log
-...
+=> terraform plan -input=false
+Acquiring state lock. This may take a few moments...
+Refreshing Terraform state in-memory prior to plan...
+The refreshed state will be used to calculate this plan, but will not be
+persisted to local or remote state storage.
+
+------------------------------------------------------------------------
+An execution plan has been generated and is shown below.
+Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # random_pet.this will be created
+  + resource "random_pet" "this" {
+      + id     = (known after apply)
+      + length = 2
+    }
+
+  # module.bucket.aws_s3_bucket.this will be created
+  + resource "aws_s3_bucket" "this" {
+      + acceleration_status         = (known after apply)
+      + acl                         = "private"
+      + arn                         = (known after apply)
+      + bucket                      = (known after apply)
+      + bucket_domain_name          = (known after apply)
+      + bucket_regional_domain_name = (known after apply)
+      + force_destroy               = false
+      + hosted_zone_id              = (known after apply)
+      + id                          = (known after apply)
+      + region                      = (known after apply)
+      + request_payer               = (known after apply)
+      + website_domain              = (known after apply)
+      + website_endpoint            = (known after apply)
+      + versioning {
+          + enabled    = (known after apply)
+          + mfa_delete = (known after apply)
+        }
+    }
+Plan: 2 to add, 0 to change, 0 to destroy.
+------------------------------------------------------------------------
+Note: You didn't specify an "-out" parameter to save this plan, so Terraform
+can't guarantee that exactly these actions will be performed if
+"terraform apply" is subsequently run.
 ```
 
 ## Docs
