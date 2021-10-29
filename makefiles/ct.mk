@@ -5,14 +5,12 @@
 
 # Container
 ct.copy_gemfile:
-	@cp $(STACK_DIR)/Gemfile docker/resources/Gemfile && \
-		cp $(STACK_DIR)/Gemfile.lock docker/resources/Gemfile.lock
+	@cp $(STACK_DIR)/Gemfile docker/resources/Gemfile
 
 ct.build.image: ct.copy_gemfile ## Build image for development.: make ct.build.image
 	@docker build -f docker/Dockerfile -t $(IMAGE) ./docker --no-cache
-	@rm docker/resources/Gemfile && \
-		rm docker/resources/Gemfile.lock
-
+	@rm docker/resources/Gemfile
+	
 ct.cmd:
 	@docker run --rm -it \
 		--name $(PROJECT_NAME) \
