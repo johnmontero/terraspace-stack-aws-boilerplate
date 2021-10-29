@@ -1,0 +1,34 @@
+# Terraform files
+.terraform
+terraform.tfstate
+terraform.tfvars
+*.tfstate*
+
+.terraspace-cache
+
+# OS X files
+.history
+.DS_Store
+
+# Common ruby files
+*.gem
+*.rbc
+.idea
+ts/.bundle
+ts/.config
+ts/.yardoc
+ts/_yardoc
+ts/coverage
+ts/doc/
+ts/Gemfile.lock
+ts/InstalledFiles
+ts/lib/bundler/man
+ts/log
+ts/output
+ts/pkg
+ts/rdoc
+ts/spec/fixtures/project/output
+ts/spec/reports
+ts/test/tmp
+ts/test/version_tmp
+ts/tmp

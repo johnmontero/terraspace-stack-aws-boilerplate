@@ -1,0 +1,9 @@
+FROM ruby:2.7.2-alpine3.12
+
+RUN apk add ruby-unf_ext cmake build-base git terraform aws-cli
+
+RUN gem install terraspace
+
+ADD resources /resources
+
+RUN cd /resources && bundle install
