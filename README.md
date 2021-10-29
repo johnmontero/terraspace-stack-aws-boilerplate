@@ -8,11 +8,15 @@
 
 ## Considerations for customizations
 
-First you need rename some variables , run this commands inside your project folder
+First of all, you must rename some variables in the Makefile and README file
 
 ```
-LC_ALL=C find ./ -type f -exec sed -i '' -e "s/__OWNER__/wakanda/" {} \;
-LC_ALL=C find ./ -type f -exec sed -i '' -e "s/__SERVICE_NAME__/vibranium/" {} \;
+OWNER          = __OWNER__
+SERVICE_NAME   = __SERVICE_NAME__
+```
+
+```
+# __OWNER__ Stack __SERVICE_NAME__
 ```
 
 ## Help
@@ -37,23 +41,23 @@ make ct.build.image
 
 Execution of terraspace commands are executed using ts.cmd
 ```
-make ts.cmd COMMAND="terraspace plan filestorage"
-make ts.cmd COMMAND="terraspace up filestorage -y"
-make ts.cmd COMMAND="terraspace down filestorage"
+make ts.cmd COMMAND="terraspace plan fs"
+make ts.cmd COMMAND="terraspace up fs -y"
+make ts.cmd COMMAND="terraspace down fs"
 ```
 
 Using the ENV environment variable we can define the environment before the execution of terraspace. By default the ENV environment variable contains the value of dev
 ```
-make ts.cmd COMMAND="terraspace plan filestorage" ENV=stg
-make ts.cmd COMMAND="terraspace up filestorage -y" ENV=stg
-make ts.cmd COMMAND="terraspace down filestorage" ENV=stg
+make ts.cmd COMMAND="terraspace plan fs" ENV=stg
+make ts.cmd COMMAND="terraspace up fs -y" ENV=stg
+make ts.cmd COMMAND="terraspace down fs" ENV=stg
 ```
 
 Using the AWS_REGION environment variable we can define the environment before the execution of terraspace. By default the AWS_REGION environment variable contains the value of us-west-2
 ```
-make ts.cmd COMMAND="terraspace plan filestorage" ENV=stg AWS_REGION=us-east-1
-make ts.cmd COMMAND="terraspace up filestorage -y" ENV=stg AWS_REGION=us-east-1
-make ts.cmd COMMAND="terraspace down filestorage" ENV=stg AWS_REGION=us-east-1
+make ts.cmd COMMAND="terraspace plan fs" ENV=stg AWS_REGION=us-east-1
+make ts.cmd COMMAND="terraspace up fs -y" ENV=stg AWS_REGION=us-east-1
+make ts.cmd COMMAND="terraspace down fs" ENV=stg AWS_REGION=us-east-1
 ```
 
 ## Docs
